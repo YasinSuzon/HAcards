@@ -75,3 +75,4 @@ card:
             enabled: true
         legend:
           show: false
+```
