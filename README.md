@@ -2,7 +2,7 @@
 ![Temperature and Humidity](https://raw.githubusercontent.com/YasinSuzon/HAcards/main/Photos/Temperature%20%26%20Humidity%20for%20indoor%20%26%20outdoor.png)
 
 <details>
-  <summary>For Temperature</summary>
+<summary>For Temperature</summary>
 
 ```yaml
 type: custom:mod-card
@@ -72,99 +72,6 @@ card:
         chart:
           height: 100%
           sparkline:
-```
-
-
-<details>
-  <summary>For Humidity</summary>
-
-```yaml
-type: custom:mod-card
-card_mod:
-  style: |
-    ha-card {
-      position: relative;
-      overflow: hidden;
-    }
-card:
-  type: vertical-stack
-  cards:
-    - type: entities
-      theme: Graphite Auto
-      card_mod:
-        style: |
-          ha-card {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            padding: 12px 16px !important;
-            position: relative;
-            z-index: 2;
-          }
-      entities:
-        - entity: sensor.zhimi_rmb1_f34c_relative_humidity
-          type: custom:multiple-entity-row
-          name: Humidity
-          icon: mdi:water-outline
-          show_state: false
-          entities:
-            - entity: sensor.zhimi_rmb1_f34c_relative_humidity
-              name: false
-            - entity: sensor.temp_sensor_humidity
-              name: false
-    - type: custom:apexcharts-card
-      graph_span: 24h
-      card_mod:
-        style: |
-          ha-card {
-            position: absolute !important;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            opacity: 0.4;
-            z-index: 1;
-            pointer-events: none;
-          }
-      apex_config:
-        chart:
-          height: 100%
-          sparkline:
-            enabled: false
-          toolbar:
-            show: false
-        grid:
-          show: false
+            enabled: true
         legend:
           show: false
-        xaxis:
-          labels:
-            show: false
-          axisBorder:
-            show: false
-          axisTicks:
-            show: false
-        yaxis:
-          - show: false
-            forceNiceScale: true
-          - show: false
-            opposite: true
-            forceNiceScale: true
-      series:
-        - entity: sensor.zhimi_rmb1_f34c_relative_humidity
-          type: area
-          color: "#3498db"
-          stroke_width: 1.5
-          opacity: 0.25
-          fill_raw: last
-        - entity: sensor.temp_sensor_humidity
-          type: area
-          color: "#e67e22"
-          stroke_width: 1.5
-          opacity: 0.2
-          fill_raw: last
-```
-
